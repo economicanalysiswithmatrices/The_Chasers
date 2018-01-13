@@ -330,7 +330,7 @@ global cash
 
 if cash > 0
 upper = (1.4:0.2:3);
-lower = (0:0.1:0.9);
+lower = (0.1:0.1:0.9);
 upperoffer= cash + cash *upper(randi(length(upper)));
 loweroffer = cash - cash *lower(randi(length(lower)));
 else
