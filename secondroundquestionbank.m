@@ -27,7 +27,17 @@ myquestion={'What do the Danish call Danish pastries?';
     'The spacecraft Cassini?Huygens ended its 19-year mission by plunging into what planet on September 15, 2017?'; 
     'This nations flag features a gold lion holding a kastane sword with its right forepaw. Can you name which country it belongs to?';
     'The disorder of "rickets" is most often caused by a deficiency of which vitamin?';
-    'The Bridal Chorus, generally known today as "Here Comes the Bride", is from the 1850 opera "Lohengrin". Who composed the march?'};
+    'The Bridal Chorus, generally known today as "Here Comes the Bride", is from the 1850 opera "Lohengrin". Who composed the march?';
+    'Who was the first American President to reside at The White House?';
+    'What is the longest river in Pakistan?';
+    'Within which Italian city does the Vatican City lie?';
+    'New York City consists of how many boroughs?';
+    'Oceans hold what percentage of the Earths surface water?';
+    'What is the name of the fictional manager in "The Office"?';
+    'What are embedded in the sidewalk along Hollywood Boulevard and Vine Street in Los Angeles?';
+    'Which monarch was on the throne during the Great Fire of London?';
+    'How many legs are visible on the Isle Of Man flag?';
+    'Which of these Scottish cities is the most northerly?'};
 
     
 myCA={'Viennese bread';
@@ -53,7 +63,18 @@ myCA={'Viennese bread';
     'Saturn';
     'Sri Lanka';
     'Vitamin D';
-    'Richard Wagner'};
+    'Richard Wagner';
+    'John Adams';
+    'Indus';
+    'Rome';
+    '5';
+    '97%';
+    'David Brent';
+    'Stars';
+    'Charles II';
+    '3';
+    'Inverness'};
+
  
 
 myWA1={'Danish pastries';
@@ -79,7 +100,18 @@ myWA1={'Danish pastries';
        'Jupiter';
        'Bangladesh';
        'Vitamin B';
-       'Ludwig van Beethoven'};
+       'Ludwig van Beethoven';
+       'George Washington';
+       'Indeema';
+       'Naples';
+       '3';
+       '77%';
+       'Peter Gent';
+       'Crystals';
+       'Charles I';
+       '4';
+       'Stirling'};
+ 
        
        
 myWA2={'Alsatian cakes'
@@ -105,7 +137,22 @@ myWA2={'Alsatian cakes'
        'Mars';
        'Bhutan';
        'Vitamin C';
-       'Johannes Brahms'};
+       'Johannes Brahms';
+       'Thomas Jefferson';
+       'Indira';
+       'Venice';
+       '7';
+       '87%';
+       'Michael Trent';
+       'Lights';
+       'James II';
+       '5';
+       'Dundee'};
+
+   
+   
+   
+   
 %makes answer buttons inactive       
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')

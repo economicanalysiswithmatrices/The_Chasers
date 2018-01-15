@@ -31,7 +31,18 @@ myquestion ={'How many languages and dialects are spoken by people all over the 
 'The city of Durham stands on which river?';
 'Which English king was nicknamed "Rufus"?';
 'Which North African country lies between Tunisia and Egypt?';
-'What nationality was the painter Paul Klee, who died in 1940?'};
+'What nationality was the painter Paul Klee, who died in 1940?';
+'Which Apollo mission landed the first humans on the Moon?';
+'What is the International Air Transport Association airport code for Heathrow Airport?';
+'The reactor at the site of the Chernobyl nuclear disaster is in which country?';
+'Which volcano is best known for its eruption in AD 79 that led to the destruction of Pompeii?';
+'Which event from the 2012 Summer Olympics will be held at Lords Cricket Ground?';
+'Who plays Lara Croft in the Tomb Raider series of films?';
+'Who is the only British Prime Minister to have received the Nobel Prize in Literature?';
+'What is the highest rank in the British Army?';
+'What is the name of the tallest structure ever built?';
+'Which skyscraper in New York City stands at the intersection of Fifth Avenue and West 34th Street?'};
+
       
              
  myCA ={'9000';
@@ -58,7 +69,18 @@ myquestion ={'How many languages and dialects are spoken by people all over the 
  'Wear';
  'William II';
  'Libya';
- 'Swiss'};
+ 'Swiss';
+ 'Apollo 11';
+ 'LHR';
+ 'Ukraine';
+ 'Mount Vesuvius';
+ 'Archery';
+ 'Angelina Jolie';
+ 'Sir Winston Churchill';
+ 'Field Marshal';
+ 'Burj Khalifa';
+ 'Empire State Building'};
+
  
   
 myWA1 ={'6000';
@@ -85,7 +107,18 @@ myWA1 ={'6000';
 'Tyne';
 'Edward II';
 'Algeria';
-'Dutch'};
+'Dutch';
+'Apollo 9';
+'HRW';
+'Russia';
+'Mount Etna';
+'Shooting';
+'Minnie Driver';
+'Anthony Eden';
+'Brigadier';
+'CN Tower';
+'Trump World Tower'};
+
 
  
 myWA2 ={'4000';
@@ -112,7 +145,20 @@ myWA2 ={'4000';
 'Tees';
 'Henry II';
 'Morocco';
-'Swedish'};
+'Swedish';
+'Apollo 13';
+'LHW';
+'Hungary';
+'Mount Stromboli';
+'Fencing';
+'Jennifer Aniston';
+'Clement Attlee';
+'Major General';
+'Taipei 101';
+'Chrysler Building'};
+
+
+
 %if counter = 0 then it generates a matrix where it contains no repeating
 %numbers from 1 to length(myquestion).
 if counter == 0

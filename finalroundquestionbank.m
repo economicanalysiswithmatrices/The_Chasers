@@ -29,9 +29,17 @@ myquestion={'Who wrote the song White Christmas?';
 'In the Disney 1955 animated classic "Lady and the Tramp", what is the name of Ladys owner?';
 'What artist holds the record for the most singles listed on the Billboard Hot 100 chart, which did not reach number one?';
 'Which of the following celebrities was the first to be born?';
-'Useful for calculating internet speed and bandwidth, how many megabits are there in a megabyte?'};
-    
-
+'Useful for calculating internet speed and bandwidth, how many megabits are there in a megabyte?';
+'What is the name of Batmans butler?';
+'What is the van called in the Scooby Doo cartoon series?';
+'How many presidencies were there before Barack Obama assumed office?';
+'In musical notation, which note is four times as long as a crotchet?';
+'Which TV soap features the Beale and Mitchell families?';
+'The small republic of San Marino is completely surrounded by which larger country?';
+'Something described as "tactile" means that it relates to which of the senses?';
+'The words of which song title appear on the Shankly Gates at Liverpool FCs Anfield stadium?';
+'According to Greek mythology, after Pandora had opened her box to release all the evils of the world, what remained inside after she had closed it again?';
+'In Treasure Island, Jim Hawkins is hiding in a barrel of what when he overhears Long John Silvers plan to take over the Hispaniola and murder its officers?'};
 
 myCA={'Irving Berlin';
 'Mount Everest';
@@ -47,8 +55,19 @@ myCA={'Irving Berlin';
 'Darling';
 'James Brown';
 'Mother Teresa';
-'Eight'};
- 
+'Eight';
+'Alfred';
+'Mystery Machine';
+'43';
+'Semibreve';
+'EastEnders';
+'Italy';
+'Touch';
+'You"ll Never Walk Alone';
+'Hope';
+'Apples'};
+
+
  
 myWA1={'Ivor Novello';
 'Antarctica';
@@ -64,7 +83,18 @@ myWA1={'Ivor Novello';
 'Diana';
 'Michael Jackson';
 'Nelson Mandela';
-'Sixteen'};
+'Sixteen';
+'Charles';
+'Adventure Wagon';
+'41';
+'Minim';
+'Coronation Street';
+'India';
+'Hearing';
+'Follow That Dream';
+'Charity';
+'Flour'};
+
 
 
 myWA2={'Cole Porter';
@@ -81,7 +111,21 @@ myWA2={'Cole Porter';
 'Danielle';
 'Stevie Wonder';
 'Marilyn Monroe'; 
-'Twelve'};
+'Twelve';
+'Wilfred';
+'Riddle Roadster';
+'45';
+'Quaver';
+'Hollyoaks';
+'Israel';
+'Taste';
+'My Way';
+'Faith';
+'Rum'};
+
+
+
+
 %if counter = 0 then it generates a matrix where it contains no repeating
 %numbers from 1 to length(myquestion).        
  if counter == 0
@@ -124,6 +168,3 @@ set(handles.pushbutton3,'Enable','on')
 if round == 0
 set(handles.edit2,'string',point)
 end
-
-
-
