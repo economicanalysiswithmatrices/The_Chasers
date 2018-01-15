@@ -5,6 +5,7 @@
  
  
  Group Member	Student Number	Percentage of Mark Given
+ 
  Jordan Mencattelli	6418393	20
  
  Samdaniel Gerard		32
