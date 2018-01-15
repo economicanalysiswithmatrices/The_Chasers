@@ -1,13 +1,20 @@
 clear sound
+%turn timer box off
 set(handles.edit4,'Visible','off')
+%determines  the second round 5 second timer
 global sec
+%determines what button has been pressed
 global numbutton
 global A
+%how far the contestant is from home
 global Score
+%how far the chaser is from home
 global chaser
+%whether the loop that emulates the 5 second timer carries on running
 global timer_switch
 global chasersuccess
 global prizepot
+%when timer_switch = it is breaks  the loop that emulates the 5 second timer
 timer_switch = 1;
 
 
@@ -43,7 +50,7 @@ end
     
 pause(2)
 
-%get the text from the button
+%get the text from the anserbutton
 X = get(handles.pushbutton1, 'string');
 Y = get(handles.pushbutton2, 'string');
 Z = get(handles.pushbutton3, 'string');
@@ -60,7 +67,7 @@ if strcmp(X,A(2,1))
 set(handles.pushbutton1,'ForegroundColor','green');
 elseif strcmp(Y,A(2,1))
 set(handles.pushbutton2,'ForegroundColor','green');
-else
+elseif strcmp(Z,A(2,1))
 set(handles.pushbutton3,'ForegroundColor','green');
 end
 
@@ -106,7 +113,7 @@ set(handles.edit3,'string',"The Chaser's answer was");
 pause(2)
  
 %if the chaser is correct
-if chaseprob < chasersuccess
+if chaseprob <= chasersuccess
     
      if strcmp(X,A(2,1))
      set(handles.pushbutton1,'BackgroundColor','red');
@@ -119,12 +126,26 @@ if chaseprob < chasersuccess
     
 %if the chaser is wrong
 else
+    wronganswer = randi(2);
       if strcmp(X,A(2,1))
-      set(handles.pushbutton3,'BackgroundColor','red');
+          if wronganswer ==1
+         %set answer button two to chasers wrong answer if wronganswer = 1
+          set(handles.pushbutton2,'BackgroundColor','red');
+          else
+          set(handles.pushbutton3,'BackgroundColor','red');
+          end
       elseif strcmp(Y,A(2,1))
-      set(handles.pushbutton1,'BackgroundColor','red');
+          if wronganswer ==1
+          set(handles.pushbutton1,'BackgroundColor','red');
+          else
+          set(handles.pushbutton3,'BackgroundColor','red');
+          end
       elseif strcmp(Z,A(2,1))
-      set(handles.pushbutton2,'BackgroundColor','red');
+          if wronganswer ==1
+          set(handles.pushbutton1,'BackgroundColor','red');
+          else
+          set(handles.pushbutton2,'BackgroundColor','red');
+          end
       end
 end
 

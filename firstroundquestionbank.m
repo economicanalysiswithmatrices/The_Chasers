@@ -1,14 +1,12 @@
+%  Resets the figure and button colours
  set(handles.figure1,'Color','blue');
-  set(handles.pushbutton1,'BackgroundColor',[1 1 1]);
+ set(handles.pushbutton1,'BackgroundColor',[1 1 1]);
  set(handles.pushbutton2,'BackgroundColor',[1 1 1]);
  set(handles.pushbutton3,'BackgroundColor',[1 1 1]);
- 
 global counter
+% This is the question order
 global questionorder
 
-
-
-   
 myquestion ={'How many languages and dialects are spoken by people all over the world?';
 'Approximately, how many people speak Chinese language';
 'Who is the author of the book: TheTime machine?';
@@ -115,12 +113,14 @@ myWA2 ={'4000';
 'Henry II';
 'Morocco';
 'Swedish'};
-
+%if counter = 0 then it generates a matrix where it contains no repeating
+%numbers from 1 to length(myquestion).
 if counter == 0
 questionorder = randperm(length(myquestion));
 end
+% increases counter vaule by 1
 counter = counter +1;
-numberofquestion = myquestion;
+% comply the question and answers into a cell(the question and answer bank)
 C = cell(4,length(myquestion));
   C(1,:) = myquestion;
   C(2,:) = myCA;
@@ -128,27 +128,31 @@ C = cell(4,length(myquestion));
   C(4,:) = myWA2;
 
 global A
+%Randomly select a column from from the questionbank by using number in the
+%column questionorder determined by the counter
   A = C(:,questionorder(:,counter));
   B = A(2:length(A));
+ %if all questions have been asked reset counter to 0
 if counter == length(myquestion)
   counter = 0;
 end
 
- 
+%set edit1 to the question
  textLabel = (A(1,1));
  set(handles.edit1, 'String', textLabel);
 
-Q = randperm(3,3);
+Q = randperm(3);
 
-
+%randomly assign answers to buttons
   set(handles.pushbutton1,'string',B(Q(1,1),1));
   set(handles.pushbutton2,'string',B(Q(1,2),1));
   set(handles.pushbutton3,'string',B(Q(1,3),1));
  
  
  global cash
- 
+ %set edit2 to show cash buildt up
 set(handles.edit2,'string',cash);
+% enable answer buttons
 set(handles.pushbutton1,'Enable','on')
 set(handles.pushbutton2,'Enable','on')
 set(handles.pushbutton3,'Enable','on')

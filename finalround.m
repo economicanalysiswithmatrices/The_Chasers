@@ -52,15 +52,20 @@ function finalround_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to finalround (see VARARGIN)
-
 % Choose default command line output for finalround
 handles.output = hObject;
+
+%set the button to have an image
 bg_image = imread('bradleywalsh.jpg');
 set(handles.pushbutton6, 'CData', bg_image);
+%the number of correct answers in the first part of the final round
 global point
 point = 0;
+%wheter it is the first or second part of the final round. if 0 first part.
+%if 1 second part
 global round
 round = 0;
+% helps determine the question
 global counter
 counter = 0;
 % Update handles structure
@@ -111,10 +116,14 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+%determines what button has been clicked
 global numbutton
 numbutton =1;
 finalroundbuttons
 global round
+%when still in the firstpart they will each time a question is answered it
+%will generate another
 if round == 0
 finalroundquestionbank
 end
@@ -134,7 +143,7 @@ end
 
 
 % --- Executes on button press in pushbutton3.
-function pushbutton3_Callback(hObject, eventdata, handles)
+function pushbutton3_Callback(~, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -198,10 +207,15 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+%this is the number of question you got right in the first part of the
+%final round
   global point
+%changes to 0 when answers is wrong and 1 when answer is right
   global check 
+%determines which answer button has been clicked
   global numbutton
-  global prizepot
+%determines wheter the minitimer in part is on or off
   global timer_switch
   timer_switch = 0;
   
@@ -211,7 +225,7 @@ set(handles.pushbutton1,'Enable','on')
 set(handles.pushbutton2,'Enable','on')
 set(handles.pushbutton3,'Enable','on')
 set(handles.pushbutton4,'visible','off')
-score = 0;
+chaserscore = 0;
 ax2=axes('Units','pix','Position',[100 350 500 20]);
 set(ax2,'Xtick',[],'Ytick',[],'Xlim',[0 1000]);
 box on;
@@ -229,8 +243,9 @@ set(handles.Restart,'visible','on')
 break
 end
    chaseprob = randi(10);
-if chaseprob <  chasersuccess
-    score = score + 1;
+% if chaser is right   
+if chaseprob <=  chasersuccess
+    chaserscore = chaserscore + 1;
     
     
 %if the chaser is wrong
@@ -247,6 +262,7 @@ set(handles.edit2,'Visible','on')
 set(handles.edit3,'Visible','on')
 set(handles.edit4,'String','You have 5 seconds to push the chaser back one step!')
 check = 0;
+%loads a question to push the chaser back one
   finalroundquestionbank
   for t2=0:5
     if timer_switch == 1
@@ -265,11 +281,11 @@ set(handles.pushbutton1,'Visible','off')
 set(handles.pushbutton2,'Visible','off')
 set(handles.pushbutton3,'Visible','off')
 set(handles.edit1,'Visible','off')
-
+% if the answer is right
     
     if check == 1
-        if score > 0
-            score = score - 1;
+        if chaserscore > 0
+            chaserscore = chaserscore - 1;
             set(handles.edit4,'String','You have pushed the chaser back one step!')
 
         else
@@ -277,7 +293,7 @@ set(handles.edit1,'Visible','off')
             set(handles.edit4,'String','You have pushed one space further ahead')
             set(handles.edit2,'string',target)
         end
-        
+  % if the answer is wrong      
     elseif check == 0
          set(handles.edit4,'String','You have failed to answer the question correctly')
     
@@ -287,13 +303,15 @@ set(handles.edit1,'Visible','off')
         set(handles.figure,'Color','blue');    
 end
      
-    y = (round(1000*score/target));
+    y = (round(1000*chaserscore/target));
  
     axes(ax2)
     cla
+% creates a rectangle that is filled red with the percentage of the target
+% the chaser has got so far
 	rectangle('Position',[0,0,y,20],'FaceColor','r','EdgeColor','b'); 
-    text(480,10,[num2str(round(score)),'']);
-  if target == score
+    text(480,10,[num2str(round(chaserscore)),'']);
+  if target == chaserscore
       set(handles.edit4,'String','You have been caught')
       set(handles.Restart,'visible','on')
       break

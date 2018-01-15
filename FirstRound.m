@@ -55,21 +55,15 @@ function FirstRound_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for FirstRound
 handles.output = hObject;
 
-
-
-
-
 % Update handles structure
 guidata(hObject, handles);
 
 %play opening theme tune
 [y,Fs] = audioread('Pre-Show_Theme.mp3');
 sound(y,Fs)
+% the counter helps determine the question that is going to picked
 global counter
 counter = 0;
-
-
-
 
 % UIWAIT makes FirstRound wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -114,13 +108,17 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%deactivates the buttons when the question has been answered
+
+%Deactivates the answers buttons when the question has been answered
+
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')
 set(handles.pushbutton3,'Enable','inactive')
+%get the string from the button and that is the chosen answer
 answer= get(handles.pushbutton1, 'string');
-
+%A is the question and corresponding answer matrix
 global A
+%cash that has been won
 global cash
 %compares the text of the button with the text of the correct answer
 if strcmp(answer,A(2,1))
@@ -133,9 +131,9 @@ else
   %if answer is wrong set background to red
  set(handles.figure1,'Color','red');
   
-  X = get(handles.pushbutton1, 'string');
+X = get(handles.pushbutton1, 'string');
 Y = get(handles.pushbutton2, 'string');
-Z = get(handles.pushbutton3, 'string');
+% Z = get(handles.pushbutton3, 'string');
 
 %compares string from button and correct answer and highlights the correct
 %answer green
@@ -286,9 +284,9 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%set the success rate of the chaser to 70%
+%set the success rate of the chaser to 70% medium button
 global chasersuccess
- chasersuccess = 8;
+ chasersuccess = 7;
  start
 
 % --- Executes on button press in pushbutton8.
@@ -296,9 +294,9 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%set the success rate of the chaser to 80%
+%set the success rate of the chaser to 80% hard button
 global chasersuccess
- chasersuccess = 9;
+ chasersuccess = 8;
  start
 
 
@@ -309,9 +307,9 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton6 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%set the success rate of the chaser to 60%
+%set the success rate of the chaser to 60% easy button
 global chasersuccess
-chasersuccess = 7;
+chasersuccess = 6;
 start
 
 

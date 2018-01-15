@@ -65,6 +65,7 @@ guidata(hObject, handles);
 global chaser
 %set chaser score to 0
 chaser =0;
+% the counter helps determine the question that is going to picked
 global counter
 counter = 0;
 
@@ -125,6 +126,9 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% numbutton is to know what button has been clicked is known when you
+% run chasercatch
 global numbutton
 numbutton = 2;
 chasercatch
@@ -135,6 +139,9 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% numbutton is to know what button has been clicked is known when you
+% run chasercatch
 global numbutton
 numbutton = 3;
 chasercatch
@@ -159,12 +166,15 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+% clear the string of the other 2 offer tiles
 set(handles.pushbutton7,'String','');
 set(handles.pushbutton8,'String','');
+%make all offer tile buttons inactive
 set (handles.pushbutton8,'Enable','inactive')
 set (handles.pushbutton7,'Enable','inactive')
 set (handles.pushbutton6,'Enable','inactive')
 set(handles.pushbutton12,'Visible','on')
+%make ready button visible
 set (handles.pushbutton6,'BackgroundColor','blue')
 %the contestant chooses where he would like to start from.
 %the score correponds to how close to home he wishes to start
@@ -177,13 +187,19 @@ function pushbutton7_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% clear the string of the other 2 offer tiles
 set(handles.pushbutton8,'String','');
 set(handles.pushbutton6,'String','');
+%make all offer tile buttons inactive
 set (handles.pushbutton8,'Enable','inactive')
 set (handles.pushbutton7,'Enable','inactive')
 set (handles.pushbutton6,'Enable','inactive')
+%make ready button visible
 set(handles.pushbutton12,'Visible','on')
 set (handles.pushbutton7,'BackgroundColor','blue')
+%the contestant chooses where he would like to start from.
+%the score correponds to how close to home he wishes to start
 global Score
 Score = 3;
 
@@ -193,13 +209,19 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton8 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% clear the string of the other 2 offer tiles
+set(handles.pushbutton7,'String','');
+set(handles.pushbutton6,'String','');
+%make all offer tile buttons inactive
 set (handles.pushbutton8,'Enable','inactive')
 set (handles.pushbutton7,'Enable','inactive')
 set (handles.pushbutton6,'Enable','inactive')
+%make ready button visible
 set(handles.pushbutton12,'Visible','on')
 set (handles.pushbutton8,'BackgroundColor','blue')
-set(handles.pushbutton7,'String','');
-set(handles.pushbutton6,'String','');
+%the contestant chooses where he would like to start from.
+%the score correponds to how close to home he wishes to start
 global Score
 Score = 4;
 
@@ -285,11 +307,14 @@ function pushbutton10_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA
+
+%turn off instructions
 set(handles.text4,'Visible','off')
+%turn off start button
 set(handles.pushbutton10,'Visible','off')
 set(handles.edit3,'String','Let us see who you will be up against today')
 
-
+%plays theme tune
 [y,Fs] = audioread('Chaser_walk_on_theme.mp3');
 sound(y,Fs)
 pause(0.5)
@@ -360,6 +385,8 @@ function pushbutton12_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton12 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+%reset colour of answer buttons and clears string and enables the buttons
 set(handles.pushbutton1,'ForegroundColor','black');
 set(handles.pushbutton2,'ForegroundColor','black');
 set(handles.pushbutton3,'ForegroundColor','black');
@@ -373,17 +400,20 @@ set(handles.pushbutton1,'string','');
 set(handles.pushbutton2,'string','');
 set(handles.pushbutton3,'string','');
 set(handles.edit3,'String','')
+%make radybutton invisible
 set(handles.pushbutton12,'visible','off')
 secondroundquestionbank
-
+%sec is tmer for the secondround
 global sec
 global timer_switch
+% Score is how close you are to home when score reaches 6 you reach home
 global Score
 timer_switch = 0;
 sec =5;
 % plays the timer music and starts the timer. 
 [y,Fs] = audioread('5_sec_countdown.mp3');
 sound(y,Fs)
+%enable answer buttons
 set(handles.pushbutton1,'Enable','on')
 set(handles.pushbutton2,'Enable','on')
 set(handles.pushbutton3,'Enable','on')
@@ -392,6 +422,7 @@ for t = 1:6
     if timer_switch ==1
        break  
     elseif t == 6
+     %disable answer buttons
         set(handles.pushbutton1,'Enable','off')
         set(handles.pushbutton2,'Enable','off')
         set(handles.pushbutton3,'Enable','off')      

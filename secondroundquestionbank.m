@@ -1,6 +1,7 @@
 
 %question bank
 global counter
+% This is the question order
 global questionorder
 
 myquestion={'What do the Danish call Danish pastries?';
@@ -105,15 +106,17 @@ myWA2={'Alsatian cakes'
        'Bhutan';
        'Vitamin C';
        'Johannes Brahms'};
-       
+%makes answer buttons inactive       
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')
 set(handles.pushbutton3,'Enable','inactive')
+%if counter = 0 then it generates a matrix where it contains no repeating
+%numbers from 1 to length(myquestion). 
 if counter == 0
 questionorder = randperm(length(myquestion));
 end
+% increases counter vaule by 1
 counter = counter +1;
-numberofquestion = myquestion;
 %compiles the question bank
 C = cell(4,length(myquestion));
   C(1,:) = myquestion;
@@ -122,6 +125,8 @@ C = cell(4,length(myquestion));
   C(4,:) = myWA2;
 %selects the questions and answers
 global A
+%Randomly select a column from from the questionbank by using number in the
+%column questionorder determined by the counter
   A = C(:,questionorder(:,counter));
   B = A(2:length(A));
 if counter == length(myquestion)
