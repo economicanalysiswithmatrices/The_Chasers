@@ -1,7 +1,12 @@
 global A
+%this is the number of question you got right in the first part of the
+%final round
 global point
+%determines which answer button has been clicked
 global numbutton
+%determines whether it is the first or second part of the final round
 global round
+%changes to 0 when answers is wrong and 1 when answer is right
 global check
 if numbutton ==1
     answer= get(handles.pushbutton1, 'string');

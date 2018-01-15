@@ -1,3 +1,4 @@
+ %  Resets the figure and answer button colours
  set(handles.pushbutton1,'BackgroundColor',[1 1 1]);
  set(handles.pushbutton2,'BackgroundColor',[1 1 1]);
  set(handles.pushbutton3,'BackgroundColor',[1 1 1]);
@@ -5,10 +6,14 @@
 
 
 
-
+%the number of correct answers in the first part of the final round
 global point
+%wheter it is the first or second part of the final round. if 0 first part.
+%if 1 second part
 global round
+% helps determine the question
 global counter
+% This is the question order
 global questionorder
 myquestion={'Who wrote the song White Christmas?';
 'Where did George Mallory and Andrew Irvine disappear in 1924?';
@@ -77,13 +82,14 @@ myWA2={'Cole Porter';
 'Stevie Wonder';
 'Marilyn Monroe'; 
 'Twelve'};
-        
-
+%if counter = 0 then it generates a matrix where it contains no repeating
+%numbers from 1 to length(myquestion).        
  if counter == 0
 questionorder = randperm(length(myquestion));
-end
+ end
+% increases counter vaule by 1
 counter = counter +1;
-numberofquestion = myquestion;
+%compiles the question bank
 C = cell(4,length(myquestion));
   C(1,:) = myquestion;
   C(2,:) = myCA;
@@ -91,22 +97,27 @@ C = cell(4,length(myquestion));
   C(4,:) = myWA2;
 
 global A
+%Randomly select a column from from the questionbank by using number in the
+%column questionorder determined by the counter
   A = C(:,questionorder(:,counter));
   B = A(2:length(A));
+  %if all questions have been asked reset counter to 0
 if counter == length(myquestion)
   counter = 0;
 end
- 
+ %set edit1 to the question
  textLabel = (A(1,1));
  set(handles.edit1, 'String', textLabel);
 
  Q = randperm(3);
 
+%randomly assign answers to the answer buttons
  set(handles.pushbutton1,'string',B(Q(1,1),1));
  set(handles.pushbutton2,'string',B(Q(1,2),1));
  set(handles.pushbutton3,'string',B(Q(1,3),1));
   
   set(handles.figure,'Color','blue');
+% enable answer buttons
 set(handles.pushbutton1,'Enable','on')
 set(handles.pushbutton2,'Enable','on')
 set(handles.pushbutton3,'Enable','on')
