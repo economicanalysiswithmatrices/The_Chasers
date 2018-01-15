@@ -283,7 +283,7 @@ end
       break
   elseif t==0
    
-%        set(handles.edit4,'String',sprintf('Congratulation,you have won %2.3g',prizepot),'prizepot');
+       set(handles.edit4,'String',('Congratulation,you have won'));
        set(handles.Restart,'visible','on')
         break
   end
