@@ -22,7 +22,7 @@ function varargout = FirstRound(varargin)
 
 % Edit the above text to modify the response to help FirstRound
 
-% Last Modified by GUIDE v2.5 12-Jan-2018 17:17:41
+% Last Modified by GUIDE v2.5 15-Jan-2018 00:01:50
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -118,12 +118,12 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')
 set(handles.pushbutton3,'Enable','inactive')
-X= get(handles.pushbutton1, 'string');
+answer= get(handles.pushbutton1, 'string');
 
 global A
 global cash
 %compares the text of the button with the text of the correct answer
-if strcmp(X,A(2,1))
+if strcmp(answer,A(2,1))
 %if answer is right set background to green    
      set(handles.figure1,'Color','green');
      pause(0.5)
@@ -132,8 +132,21 @@ if strcmp(X,A(2,1))
 else
   %if answer is wrong set background to red
  set(handles.figure1,'Color','red');
-  pause(0.5)
-    
+  
+  X = get(handles.pushbutton1, 'string');
+Y = get(handles.pushbutton2, 'string');
+Z = get(handles.pushbutton3, 'string');
+
+%compares string from button and correct answer and highlights the correct
+%answer green
+if strcmp(X,A(2,1))
+set(handles.pushbutton1,'BackgroundColor','green');
+elseif strcmp(Y,A(2,1))
+set(handles.pushbutton2,'BackgroundColor','green');
+else
+set(handles.pushbutton3,'BackgroundColor','green');
+end
+     pause(0.5) 
 end
 firstroundquestionbank
 
@@ -146,10 +159,10 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')
 set(handles.pushbutton3,'Enable','inactive')
-X= get(handles.pushbutton2, 'string');
+answer= get(handles.pushbutton2, 'string');
 global A
 global cash
-if strcmp(X,A(2,1))
+if strcmp(answer,A(2,1))
      set(handles.figure1,'Color','green');
      pause(0.5)
    
@@ -157,6 +170,19 @@ if strcmp(X,A(2,1))
 else
   
  set(handles.figure1,'Color','red');
+ X = get(handles.pushbutton1, 'string');
+Y = get(handles.pushbutton2, 'string');
+Z = get(handles.pushbutton3, 'string');
+
+%compares string from button and correct answer and highlights the correct
+%answer green
+if strcmp(X,A(2,1))
+set(handles.pushbutton1,'BackgroundColor','green');
+elseif strcmp(Y,A(2,1))
+set(handles.pushbutton2,'BackgroundColor','green');
+else
+set(handles.pushbutton3,'BackgroundColor','green');
+end
   pause(0.5)
     
 end
@@ -170,11 +196,11 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 set(handles.pushbutton1,'Enable','inactive')
 set(handles.pushbutton2,'Enable','inactive')
 set(handles.pushbutton3,'Enable','inactive')
-X= get(handles.pushbutton3, 'string');
+answer= get(handles.pushbutton3, 'string');
 global A
 global cash
 
-if strcmp(X,A(2,1))
+if strcmp(answer,A(2,1))
      set(handles.figure1,'Color','green');
      pause(0.5)
    
@@ -182,6 +208,19 @@ if strcmp(X,A(2,1))
 else
      
  set(handles.figure1,'Color','red');
+ X = get(handles.pushbutton1, 'string');
+Y = get(handles.pushbutton2, 'string');
+Z = get(handles.pushbutton3, 'string');
+
+%compares string from button and correct answer and highlights the correct
+%answer green
+if strcmp(X,A(2,1))
+set(handles.pushbutton1,'BackgroundColor','green');
+elseif strcmp(Y,A(2,1))
+set(handles.pushbutton2,'BackgroundColor','green');
+else
+set(handles.pushbutton3,'BackgroundColor','green');
+end
   pause(0.5)
     
 end
@@ -274,3 +313,27 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 global chasersuccess
 chasersuccess = 7;
 start
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton1.
+function pushbutton1_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton2.
+function pushbutton2_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton3.
+function pushbutton3_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

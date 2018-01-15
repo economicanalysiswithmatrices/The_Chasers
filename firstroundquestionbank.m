@@ -1,4 +1,8 @@
  set(handles.figure1,'Color','blue');
+  set(handles.pushbutton1,'BackgroundColor',[1 1 1]);
+ set(handles.pushbutton2,'BackgroundColor',[1 1 1]);
+ set(handles.pushbutton3,'BackgroundColor',[1 1 1]);
+ 
 global counter
 global questionorder
 

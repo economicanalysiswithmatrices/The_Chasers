@@ -202,6 +202,9 @@ function pushbutton4_Callback(hObject, eventdata, handles)
   global check 
   global numbutton
   global prizepot
+  global timer_switch
+  timer_switch = 0;
+  
    numbutton = 0;
   target = point;
 set(handles.pushbutton1,'Enable','on')
@@ -213,13 +216,13 @@ ax2=axes('Units','pix','Position',[100 350 500 20]);
 set(ax2,'Xtick',[],'Ytick',[],'Xlim',[0 1000]);
 box on;
  global  chasersuccess
-  t = 30;
+  finalroundtimer = 30;
   pause(1)
-while t > 0
- 
-   t=  t-1;
+while finalroundtimer > 0
+  timer_switch = 0;
+   finalroundtimer=  finalroundtimer-1;
    set(handles.edit3,'Visible','on')
-   set(handles.edit3,'string',t)
+   set(handles.edit3,'string',finalroundtimer)
 if point==0   
 set(handles.edit4,'String','You have failed to get a single point!')
 set(handles.Restart,'visible','on')
@@ -245,7 +248,19 @@ set(handles.edit3,'Visible','on')
 set(handles.edit4,'String','You have 5 seconds to push the chaser back one step!')
 check = 0;
   finalroundquestionbank
-  pause(5)
+  for t2=0:5
+    if timer_switch == 1
+       set(handles.edit3,'Visible','off')
+        break
+    end
+    minitimer =5-t2;
+    set(handles.edit3,'string',minitimer);
+    pause(1)
+    
+  end
+  
+ 
+
 set(handles.pushbutton1,'Visible','off')
 set(handles.pushbutton2,'Visible','off')
 set(handles.pushbutton3,'Visible','off')
@@ -269,8 +284,9 @@ set(handles.edit1,'Visible','off')
     end
         pause (2)
         set(handles.edit4,'String','Start the clock')
+        set(handles.figure,'Color','blue');    
 end
-        
+     
     y = (round(1000*score/target));
  
     axes(ax2)
@@ -281,7 +297,7 @@ end
       set(handles.edit4,'String','You have been caught')
       set(handles.Restart,'visible','on')
       break
-  elseif t==0
+  elseif finalroundtimer==0
    
        set(handles.edit4,'String',('Congratulation,you have won'));
        set(handles.Restart,'visible','on')
