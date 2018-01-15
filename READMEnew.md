@@ -19,7 +19,7 @@
  
  Motivation
  
- Our motivation for the group project came from our desire to create a game to replicate one of TV’s best game shows – The Chase! We were originally inspired to create a TV game show due to the success that other groups have had in past years, we intended to create a fully functional Matlab game with a great degree of replay value, which would allow the end users to enjoy the chase. We believe that creating the chase game show through Matlab is both challenging and interesting, because every team member was already aware of the final model should look like, which meant we had an easily understandable goal to aspire for. We decided to adopt GUI, to make our game more user-friendly and visibly attractive to players.
+ Our motivation for the group project came from our desire to create a game to replicate one of TV’s best game shows – The Chase! We were originally inspired to create a TV game show due to the success that other groups have had in past years, we intended to create a fully functional Matlab game with a great degree of replay value, which would allow the end users to enjoy the chase. We believe that creating the chase game show through Matlab is both challenging and interesting, because every team member was already aware of what the final model should look like, which meant we had an easily understandable goal to aspire for. We decided to adopt GUI, to make our game more user-friendly and visibly attractive to players.
  
  Methodology
  
@@ -41,14 +41,15 @@
  
  Problems and limitations during the development process
  
- At one point during the development process, there was no limit to the number of questions that could be asked, theoretically if the player was extremely weak and unlucky they would be able to run through the entire question bank. Thus, we decided to increase our question bank to 20 questions. Theoretically, it is still possible that both the player and chaser could get most of these questions wrong, however it is statistically very unlikely, even on the easiest difficulty. 
+ There is a theoretical limit of 60 to the number of questions that a player can be asked. If a player were to click as many times asthey could within 30 seconds, they can get an answer every 0.5 seconds due to the internal limit. In this case, they could run through all 20 questions which would cause the game to start repeating the questions again. However, no question would repeat until after all 20 questions from the question bank have been used. It is also worth noting that if played normally, this bug is unlikely to make a difference to regular play.
  
  We felt that the chaser having an 80% probability to answer correctly could make the game too difficult for weaker players, thus reducing their enjoyment of the game. Consequently, unlike the actual chase we opted for a three-tier difficulty system, selected upon starting the game, which changes the chaser’s success probability from 60-70-80%. We believed this to be optimal as this would allow the user to increase the chasers expected number of plays needed to win, giving them more potential questions to win. 
  
- A third problem that we encountered was that players who incorrectly answered multiple questions in the first round could choose to play for ≤£0 in the second round. In this scenario, the game would become pointless as no player would be willing to play for a negative cash reward. Due to this, we added a restart button, allowing such a player to retry the game without having to sit through the rest of the rounds.
+ A third problem that we encountered was that players who incorrectly answered multiple questions in the first round could choose to play for ≤£0 in the second round. In this scenario, the game would become pointless as no player would be willing to play for a negative cash reward. Due to this, we added a restart button, allowing such a player to restart the game having lost either the second or third round.
  
- When we were using the timer function, the timer would not stop once a question had been answered. We decided that the correct way to approach this was to make our own timer, thus we created the Timer_switch variable. When a question was answered, we would set timer_switch = 1, which would break the loop and stop the timer.
+We opted against using the timer function in favour of using the global variable timer_switch, this would allow us to break the loop because when a question button is clicked it would set the timer switch to zero.
  
+ A final limitation is that we were unable to code our own progress bar without it "popping up" and out of the game. As a consequence we decided to use "Yuanfei's" Waitbar which has been referenced at the end. The waitbar has a similar functionality to our original progress bar, but looks and feels better to use.
  References
  
  Author	‘Yuanfei’
