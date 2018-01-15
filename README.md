@@ -47,7 +47,9 @@
  
  We felt that the chaser having an 80% probability to answer correctly could make the game too difficult for weaker players, thus reducing their enjoyment of the game. Consequently, unlike the actual chase we opted for a three-tier difficulty system, selected upon starting the game, which changes the chaser’s success probability from 60-70-80%. We believed this to be optimal as this would allow the user to increase the chasers expected number of plays needed to win, giving them more potential questions to win. 
  
- A third problem that we encountered was that players who incorrectly answered multiple questions in the first round could choose to play for ≤£0 in the second round. In this scenario, the game would become pointless as no player would be willing to play for a negative cash reward. Due to this, we added a restart button, allowing such a player to restart the game having lost either the second or third round.
+ A third problem that we encountered was that players who didn't correctly answer a single question the first round could choose to play for ≤£0 in the second round. However we left this part in as we wanted to stay true to the real TV Show game. 
+ 
+As it was possible to lose in the second round and not reach the final round. It can be tedious opening and closing the game in order to reach it. Due to this, we added a restart button, allowing such a player to restart from the beginning the game having lost either the second or third round.
  
 We opted against using the timer function in favour of using the global variable timer_switch, this would allow us to break the loop because when a question button is clicked it would set the timer switch to zero.
  
